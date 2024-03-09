@@ -265,7 +265,7 @@ tr:hover .cut {
 .custom-line {
     border: none;
     border-bottom: 1px solid #000;
-    margin: 5px 0;
+    margin: 0px 0;
 }
 
 /* Estilo para el texto más pequeño */
