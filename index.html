@@ -1,90 +1,188 @@
+<!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="utf-8">
-		<title>vouchers tde</title>
-		<link rel="stylesheet" href="https://gasparfranceschi.github.io/invoice/style.css">
-		<link rel="license" href="https://www.opensource.org/licenses/mit-license/">
-	</head>
-	<body>
-		<header>
-			<h1>VOUCHER</h1>
-			<address>
-				<p>TDE VIAJES</p>
-				<p><br>NUÑEZ - C.A.B.A. - ARGENTINA</p>
-				<p>Tel: (011) 52900891 </p>
-				<p>E.V.T. Leg.N° 15900 </p>
-				<p>Res.1030 </p>
-			</address>
- <div style="float: right;">
-    <img alt="" src="https://acortar.link/YcpSOI" style="width: 225; height: 150; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
-</div>
-		</header>
-		<article>
-			<h1>Recipient</h1>
-			<address>
-				<p>&lt;&lt;[Nombre del Proveedor]&gt;&gt;</p>
-                <p class="small-text"><br>Provincia: &lt;&lt;[Nombre/Razon Social].[Provincia]&gt;&gt;</p>
-                <p class="small-text">Localidad: &lt;&lt;[Localidad]&gt;&gt;</p>
-                <p class="small-text">Cel:&lt;&lt;[Telefono]&gt;&gt;</p>
-			</address>
-			<table class="meta">
-				<tr>
-					<th><span>Codigo Voucher #</span></th>
-					<td><span>&lt;&lt;[Cot_Numero]&gt;&gt;</span></td>
-				</tr>
-				<tr>
-					<th><span>Fecha de Emision</span></th>
-					<td><span>&lt;&lt;[emision voucher]&gt;&gt;</span></td>
-				</tr>
-				<tr>
-					<th><span>Pasajero</span></th>
-					<td><span>&lt;&lt;[Nombre Pasajero]&gt;&gt;</span></td>
-				</tr>
-			</table>
-			<table class="inventory">
-				<thead>
-					<tr>
-						<th><span>Aerolinea</span></th>
-						<th><span>Fecha de Salida</span></th>
-						<th><span>Fecha de Regreso</span></th>
-						<th><span>Desde</span></th>
-						<th><span>Hasta</span></th>
-					</tr>
-				</thead>
-				<tbody>
-				<p><span>&lt;&lt;Start: SELECT(Aereos[ID_Aereo],[ID_Cotizacion]=[_THISROW].[ID_Cotizacion]) &gt;&gt;</span></p>
-					<tr>
-						<td><a class="cut">-</a>&lt;&lt;[Empresa]&gt;&gt;</td>
-					    <td><span>&lt;&lt;[Fecha Salida]&gt;&gt;</span></td>
-						<td><span>&lt;&lt;[Fecha Regreso]&gt;&gt;</span></td>
-				        <td><span>&lt;&lt;[Lugar Salida]&gt;&gt;</span></td>
-						<td><span>&lt;&lt;[Lugar Regreso]&gt;&gt;</span></td>
-						
-					</tr>
-				<p><span>&lt;&lt; end &gt;&gt;</span></p>
-				</tbody>
-			</table>
-			<a class="add">+</a>
-			<table class="balance">
-				<tr>
-					<th><span>Total</span></th>
-					<td><span>&lt;&lt;[Estado de Contratacion]&gt;&gt;</span></td>
-				</tr>
-				<tr>
-					<th><span>Otros conceptos</span></th>
-					<td><span data-prefix="$"></span><span>0.00</span></td>
-				</tr>
-				<tr>
-					<th><span>Total a pagar</span></th>
-					<td><span>&lt;&lt;[Moneda Factura]&gt;&gt;</span></td>
-				</tr>
-			</table>
-		</article>
-		<aside>
-			<h1><span>Notas adicionales</span></h1>
-			<div>
-				<p>Pagos a la cuenta de ahorros bancolombia # </p>
-			</div>
-		</aside>
-	</body>
+<head>
+    <meta charset="utf-8">
+    <title>vouchers tde</title>
+    <link rel="stylesheet" href="https://gasparfranceschi.github.io/invoice/style.css">
+    <link rel="license" href="https://www.opensource.org/licenses/mit-license/">
+    <style>
+        address p:nth-child(5) {
+            margin-bottom: 0;
+        }
 
+        address p:nth-child(6) {
+            margin-top: 0;
+        }
+
+        table.inventory caption {
+            font-weight: bold;
+            font-size: larger;
+            text-align: left;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>VOUCHER</h1>
+        <address>
+            <p>TDE VIAJES</p>
+            <p><br>NUÑEZ - C.A.B.A. - ARGENTINA</p>
+            <p>Tel: (011) 52900891 </p>
+            <p>E.V.T. Leg.N° 15900 </p>
+            <p>Res.1030 </p>
+        </address>
+        <div style="float: right;">
+            <img alt="" src="https://acortar.link/YcpSOI" style="width: 225; height: 150; transform: rotate(0.00rad) translateZ(0px); -webkit-transform: rotate(0.00rad) translateZ(0px);" title="">
+        </div>
+    </header>
+    <article>
+        <h1>Recipient</h1>
+        <address>
+            <p>&lt;&lt;[Nombre del Proveedor]&gt;&gt;</p>
+            <p class="small-text"><br>Provincia: &lt;&lt;[Nombre/Razon Social].[Provincia]&gt;&gt;</p>
+            <p class="small-text">Localidad: &lt;&lt;[Localidad]&gt;&gt;</p>
+            <p class="small-text">Cel:&lt;&lt;[Telefono]&gt;&gt;</p>
+        </address>
+        <table class="meta">
+            <tr>
+                <th><span>Codigo Voucher #</span></th>
+                <td><span>&lt;&lt;[Cot_Numero]&gt;&gt;</span></td>
+            </tr>
+            <tr>
+                <th><span>Fecha de Emision</span></th>
+                <td><span>&lt;&lt;[emision voucher]&gt;&gt;</span></td>
+            </tr>
+            <tr>
+                <th><span>Pasajero</span></th>
+                <td><span>&lt;&lt;[Nombre Pasajero]&gt;&gt;</span></td>
+            </tr>
+        </table>
+        <table class="inventory">
+            <caption>Aereos</caption>
+            <thead>
+                <tr>
+                    <th><span>Aerolinea</span></th>
+                    <th><span>Fecha Salida</span></th>
+                    <th><span>Fecha Regreso</span></th>
+                    <th><span>Desde</span></th>
+                    <th><span>Hasta</span></th>
+                    <th><span>Cantidad PAX</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <p><span>&lt;&lt;Start: SELECT(Aereos[ID_Aereo],[Proveedor]=[_thisrow].[ID_Pr_Contr]) &gt;&gt;</span></p>
+                <tr>
+                    <td><a class="cut">-</a>&lt;&lt;[Empresa]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[Fecha Salida]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Fecha Regreso]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Lugar Salida]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Lugar Regreso]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Cant. Pax]&gt;&gt;</span></td>
+                </tr>
+                <p><span>&lt;&lt; end &gt;&gt;</span></p>
+            </tbody>
+         </table>
+        <table class="inventory">
+            <caption>Hospedaje</caption>
+            <thead>
+                <tr>
+                    <th><span>Nombre</span></th>
+                    <th><span>Ingreso</span></th>
+                    <th><span>Salida</span></th>
+                    <th><span>Cant. Noches</span></th>
+                    <th><span>Tipo Habitacion</span></th>
+                    <th><span>Cantidad PAX</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <p><span>&lt;&lt;Start: SELECT(Hospedaje[ID_Hosp],[Proveedor]=[_thisrow].[ID_Pr_Contr]) &gt;&gt;</span></p>
+                <tr>
+                    <td><a class="cut">-</a>&lt;&lt;[Nombre Hospedaje]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[Fecha de ingreso]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Fecha de Salida]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Cantidad de Noches]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Disp_Camas]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Cant. Pax]&gt;&gt;</span></td>
+                </tr>
+                <p><span>&lt;&lt; end &gt;&gt;</span></p>
+            </tbody>    
+        
+        </table>
+         
+        <table class="inventory">
+            <caption>Traslado</caption>
+            <thead>
+                <tr>
+                    <th><span>Desde</span></th>
+                    <th><span>Hasta</span></th>
+                    <th><span>Tipo</span></th>
+                    <th><span>Cantidad PAX</span></th>
+                   
+                </tr>
+            </thead>
+            <tbody>
+                <p><span>&lt;&lt;Start: SELECT(traslado[id_Traslado],[Proveedor]=[_thisrow].[ID_Pr_Contr]) &gt;&gt;</span></p>
+                <tr>
+                    <td><a class="cut">-</a>&lt;&lt;[Lugar Desde]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[Lugar Hasta]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Comentarios]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Cant. Pax]&gt;&gt;</span></td>
+                    
+                </tr>
+                <p><span>&lt;&lt; end &gt;&gt;</span></p>
+            </tbody>
+         </table>
+        <table class="inventory">
+            <caption>Excursion</caption>
+            <thead>
+                <tr>
+                    <th><span>Excursion</span></th>
+                    <th><span>Fecha</span></th>
+                    <th><span>Traslado</span></th>
+                    <th><span>Descripcion</span></th>
+                    <th><span>Cantidad PAX</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <p><span>&lt;&lt;Start: SELECT(excursion[ID_Exc],[Proveedor]=[_thisrow].[ID_Pr_Contr]) &gt;&gt;</span></p>
+                <tr>
+                    <td><a class="cut">-</a>&lt;&lt;[Nombre Excursion]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[Fecha Excursion]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Traslado]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Comentarios]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Cant. Pax]&gt;&gt;</span></td>
+                </tr>
+                <p><span>&lt;&lt; end &gt;&gt;</span></p>
+            </tbody>
+         </table>
+         <table class="inventory">
+            <caption>Otros Servicios</caption>
+            <thead>
+                <tr>
+                    <th><span>Nombre Servicio</span></th>
+                    <th><span>Desde</span></th>
+                    <th><span>Hasta</span></th>
+                    <th><span>Cantidad PAX</span></th>
+                </tr>
+            </thead>
+            <tbody>
+                <p><span>&lt;&lt;Start: SELECT(Paq_Tur[id_Paq],[Proveedor]=[_thisrow].[ID_Pr_Contr]) &gt;&gt;</span></p>
+                <tr>
+                    <td><a class="cut">-</a>&lt;&lt;[Servicio]&gt;&gt;</td>
+                    <td><span>&lt;&lt;[Fecha desde]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Fecha Hasta]&gt;&gt;</span></td>
+                    <td><span>&lt;&lt;[Cant. Pax]&gt;&gt;</span></td>
+                </tr>
+                <p><span>&lt;&lt; end &gt;&gt;</span></p>
+            </tbody>
+         </table> 
+ 
+    </article>
+    <aside>
+        <h1><span>Notas adicionales</span></h1>
+        <div>
+            <p>Pagos a la cuenta de ahorros bancolombia # </p>
+        </div>
+    </aside>
+</body>
+</html>
